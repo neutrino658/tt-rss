@@ -456,7 +456,7 @@
 							'method' => 'GET',
 							'protocol_version'=> 1.1
 					  )));
-			} 
+			}
 
 			$old_error = error_get_last();
 
@@ -691,17 +691,19 @@
 	}
 
 	function get_ssl_certificate_id() {
-		if ($_SERVER["REDIRECT_SSL_CLIENT_M_SERIAL"]) {
-			return sha1($_SERVER["REDIRECT_SSL_CLIENT_M_SERIAL"] .
-				$_SERVER["REDIRECT_SSL_CLIENT_V_START"] .
-				$_SERVER["REDIRECT_SSL_CLIENT_V_END"] .
-				$_SERVER["REDIRECT_SSL_CLIENT_S_DN"]);
-		}
-		if ($_SERVER["SSL_CLIENT_M_SERIAL"]) {
-			return sha1($_SERVER["SSL_CLIENT_M_SERIAL"] .
-				$_SERVER["SSL_CLIENT_V_START"] .
-				$_SERVER["SSL_CLIENT_V_END"] .
-				$_SERVER["SSL_CLIENT_S_DN"]);
+		if ($_SERVER["SSL_CLIENT_VERIFY"] == "SUCCESS") {
+			if ($_SERVER["REDIRECT_SSL_CLIENT_M_SERIAL"]) {
+				return sha1($_SERVER["REDIRECT_SSL_CLIENT_M_SERIAL"] .
+					$_SERVER["REDIRECT_SSL_CLIENT_V_START"] .
+					$_SERVER["REDIRECT_SSL_CLIENT_V_END"] .
+					$_SERVER["REDIRECT_SSL_CLIENT_S_DN"]);
+			}
+			if ($_SERVER["SSL_CLIENT_M_SERIAL"]) {
+				return sha1($_SERVER["SSL_CLIENT_M_SERIAL"] .
+					$_SERVER["SSL_CLIENT_V_START"] .
+					$_SERVER["SSL_CLIENT_V_END"] .
+					$_SERVER["SSL_CLIENT_S_DN"]);
+			}
 		}
 		return "";
 	}
