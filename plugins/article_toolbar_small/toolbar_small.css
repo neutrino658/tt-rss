@@ -1,0 +1,53 @@
+﻿.toolbar_nav {
+	display: inline-block;
+	border: 1px solid rgba(55, 64, 71, 0.1);
+	border-radius: 0px;
+	overflow: hidden;
+	cursor: pointer; 
+}
+.toolbar_nav:hover {
+
+}
+.toolbar_nav span {
+	width: 20px;
+	height: 20px;
+	background-image: url("images/einfach_article_toolbar.png");
+	background-size: 280px 20px;	
+	background-repeat: no-repeat;
+	background-position: 0px 0px ;
+}
+.toolbar_nav[title~="Subscribe"] span {
+	background-position: 0px center;
+}
+.toolbar_nav[title~="Mark"] span {
+	background-position: -40px center;
+}
+.toolbar_nav[title~="Refresh"] span {
+	background-position: -60px center;
+}
+.toolbar_nav[title~="Previous"] span {
+	background-position: -80px center;
+}
+.toolbar_nav[title~="Next"] span {
+	background-position: -100px center;
+}
+
+.toolbar_nav.cdmV_true  span {
+	background-position: -160px center;
+}
+.toolbar_nav.cdmV_false  span {
+	background-position: -180px center;
+}
+.toolbar_nav.cdm_expandable span {
+	background-position: -240px center;
+}
+.toolbar_nav.cdm_expanded span {
+	background-position: -260px center;
+}
+.toolbar_nav.hlV span,
+.toolbar_nav.hl_show span {
+	background-position: -220px center;
+}
+.toolbar_nav.hl_hide span {
+	background-position: -200px center;
+}
